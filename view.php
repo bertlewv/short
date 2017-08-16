@@ -26,7 +26,7 @@ $stmt = $conn->prepare("SELECT * FROM links where user = ?");
 	print '<th>Short</th><th>URL</th><th>User</th><th>Date Submitted</th><th>Delete</th>';
 	while($stmt->fetch()) {
 		print '<tr>';
-		print '<td><a href="$url/'.$short.'" target="_blank">'.$short.'</a></td>';
+		print '<td><a href="'.$path.$short.'" target="_blank">'.$short.'</a></td>';
 		print '<td>'.$url.'</td>';
 		print '<td>'.$user.'</td>';
 		print '<td>'.$date.'</td>';
