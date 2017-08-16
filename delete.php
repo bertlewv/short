@@ -6,7 +6,7 @@
 <?php
 include 'config.php';
 if (!$user) {
-	echo "You need to <a href=http://wvnet.work>log in</a>";
+	echo "You need to <a href=$url>log in</a>";
 	die();
 }
 $id = $_GET['id'];
