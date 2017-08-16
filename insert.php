@@ -4,6 +4,7 @@
 
 <?php
 include 'config.php';
+//Generate random 5 character string
 $short = substr(md5(microtime()),rand(0,26),5);
 $url = $_POST['url'];
 $view = 1;
