@@ -1,0 +1,11 @@
+access.log
+config.php
+error.log
+favicon.ico
+htpasswd.users
+nocmonitor/
+nocmonitor2/
+stuff/
+tools/
+wp/
+
