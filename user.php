@@ -10,6 +10,7 @@ function html() {
 	Password: <input type="password" name="newpass"><br>
 	<input type="submit" name="Add User">
 	</form>
+	<a href=view.php>View URLs</a>
 	</body>
 	</html>
 	<?php
@@ -17,10 +18,10 @@ function html() {
 if ($_SESSION['auth'] != 1) {
 	require('login.php');
 }else{
+	include 'config.php';
 	if ($_COOKIE['username'] !== $admin) {
 		header('Location: view.php');
 	}
-	include 'config.php';
 	if (empty($_POST['newpass'])) {
 		$newpass = "";
 	}else {

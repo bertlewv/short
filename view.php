@@ -18,6 +18,9 @@ if ($_SESSION['auth'] != 1) {
 	?>
 	<button type="button" onclick="window.location.href='new.php'">Add URL</button>
 	<?php
+	if ($_COOKIE['username'] == $admin) {
+		echo "<button type=button onclick=window.location.href='user.php'>Add USER</button>";
+	}
 	echo "<br>Hello ".$user."!<br>";
 
 	// Create connection
