@@ -4,6 +4,25 @@ $name = $_POST['name'];
 $pass = sha1($_POST['pass']);
 
 
+function html() {
+	?>
+	<html>
+	<head></head>
+	<body>
+	<center>
+	You need to login.
+	<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+	Username: <input type="text" name="name" value="<?php echo $_COOKIE['username']; ?>">
+	<p>
+	Password: <input type="password" name="pass">
+	<p>
+	<input type="submit" name="submit" value="Log In">
+	</form>
+	</center>
+	</body>
+	</html>
+	<?php
+}
 if (isset($name) && isset($pass)) {
 	//if (empty($name)) {
 	//	die("ERROR: YOU DIDN'T ENTER A USERNAME YOU TWAT!");
@@ -24,23 +43,7 @@ if (isset($name) && isset($pass)) {
 		if ($stmt->num_rows < 1) {
 			/*Denied */
 			echo "<center>Valid authentication credentials not provided</center>";
-?>
-<html>
-<head></head>
-<body>
-<center>
-You need to login.
-<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-Username: <input type="text" name="name" value="<?php echo $_COOKIE['username']; ?>">
-<p>
-Password: <input type="password" name="pass">
-<p>
-<input type="submit" name="submit" value="Log In">
-</form>
-</center>
-</body>
-</html>
-<?php
+			html();
 		}else {
 			//if ($name == "mike" && $pass == "mike" ) {
 			session_start();
@@ -51,22 +54,5 @@ Password: <input type="password" name="pass">
 		}
 	}
 }else {
-	?>
-<html>
-<head></head>
-<body>
-<center>
-You need to login.
-<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-Username: <input type="text" name="name" value="<?php echo $_COOKIE['username']; ?>">
-<p>
-Password: <input type="password" name="pass">
-<p>
-<input type="submit" name="submit" value="Log In">
-</form>
-</center>
-</body>
-</html>
-<?php
+	html();
 }
-?>
