@@ -29,6 +29,7 @@ if (isset($name) && isset($pass)) {
 <head></head>
 <body>
 <center>
+You need to login.
 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 Username: <input type="text" name="name" value="<?php echo $_COOKIE['username']; ?>">
 <p>
