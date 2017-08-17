@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html>
 <body>
+<head>
+<style type="text/css">
+a {
+	color: #0962f2;
+	text-decoration: underline;
+	font-weight: bold;
+}
+</style>
 <?php
 session_start();
 if ($_SESSION['auth'] != 1) {
@@ -8,7 +16,7 @@ if ($_SESSION['auth'] != 1) {
 }else{
 	include 'config.php';
 	?>
-	<a href=new.php>Add URL</a>
+	<button type="button" onclick="window.location.href='new.php'">Add URL</button>
 	<?php
 	echo "<br>Hello ".$user."!<br>";
 
