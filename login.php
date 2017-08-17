@@ -5,12 +5,12 @@ $pass = sha1($_POST['pass']);
 
 
 if (isset($name) && isset($pass)) {
-	if (empty($name)) {
-		die("ERROR: YOU DIDN'T ENTER A USERNAME YOU TWAT!");
-	}
-	if (empty($pass)) {
-		die("ERROR: YOU DIDN'T ENTER A PASSWORD YOU IDIOT!");
-	}
+	//if (empty($name)) {
+	//	die("ERROR: YOU DIDN'T ENTER A USERNAME YOU TWAT!");
+	//}
+	//if (empty($pass)) {
+	//	die("ERROR: YOU DIDN'T ENTER A PASSWORD YOU IDIOT!");
+	//}
 	$conn = new mysqli($servername, $username, $password, $dbname);
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
