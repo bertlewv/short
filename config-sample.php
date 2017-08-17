@@ -13,5 +13,5 @@ $path = "http://google.com/";
 $admin = "user";
 date_default_timezone_set('America/New_York');
 $date = date('Y-m-d H:i:s');
-$user = $_cookie['username'];
+$user = $_SESSION['user'];
 ?>
