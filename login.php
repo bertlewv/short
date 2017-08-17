@@ -22,12 +22,6 @@ function boop() {
 	<?php
 }
 if (isset($name) && isset($pass)) {
-	//if (empty($name)) {
-	//	die("ERROR: YOU DIDN'T ENTER A USERNAME YOU TWAT!");
-	//}
-	//if (empty($pass)) {
-	//	die("ERROR: YOU DIDN'T ENTER A PASSWORD YOU IDIOT!");
-	//}
 	$conn = new mysqli($servername, $username, $password, $dbname);
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
@@ -43,11 +37,9 @@ if (isset($name) && isset($pass)) {
 			echo "<center>Valid authentication credentials not provided</center>";
 			boop();
 		}else {
-			//if ($name == "mike" && $pass == "mike" ) {
 			session_start();
 			$_SESSION['auth'] = 1;
 			$_SESSION['user'] = $name;
-			//setcookie("username", $_POST['name'], time()+(84600*30));
 			header('Location: view.php');
 			exit;
 		}
