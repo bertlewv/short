@@ -30,7 +30,7 @@ if ($_SESSION['auth'] != 1) {
 		print '<td>'.$url.'</td>';
 		print '<td>'.$user.'</td>';
 		print '<td>'.$date.'</td>';
-		print '<td align="center"><a href="delete.php?id='.$short.'">DELETE</a>';
+		print '<td align="center"><a href="delete.php?id='.$short.'"><img src="delete-icon.png"></a>';
 		print '</tr>';
 	}
 	print '</table>';
