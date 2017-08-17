@@ -21,6 +21,7 @@ if ($_SESSION['auth'] != 1) {
 	if ($user == $admin) {
 		echo "<button type=button onclick=window.location.href='user.php'>Add USER</button>";
 	}
+	echo "<button type=button onclick=window.location.href='logout.php'>LOGOUT</button>";
 	echo "<br>Hello ".$user."!<br>";
 
 	// Create connection
