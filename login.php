@@ -2,9 +2,7 @@
 include 'config.php';
 $name = $_POST['name'];
 $pass = sha1($_POST['pass']);
-
-
-function html() {
+function boop() {
 	?>
 	<html>
 	<head></head>
@@ -43,7 +41,7 @@ if (isset($name) && isset($pass)) {
 		if ($stmt->num_rows < 1) {
 			/*Denied */
 			echo "<center>Valid authentication credentials not provided</center>";
-			html();
+			boop();
 		}else {
 			//if ($name == "mike" && $pass == "mike" ) {
 			session_start();
@@ -54,5 +52,5 @@ if (isset($name) && isset($pass)) {
 		}
 	}
 }else {
-	html();
+	boop();
 }
