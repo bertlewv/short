@@ -46,7 +46,8 @@ if (isset($name) && isset($pass)) {
 			//if ($name == "mike" && $pass == "mike" ) {
 			session_start();
 			$_SESSION['auth'] = 1;
-			setcookie("username", $_POST['name'], time()+(84600*30));
+			$_SESSION['user'] = $name;
+			//setcookie("username", $_POST['name'], time()+(84600*30));
 			header('Location: view.php');
 			exit;
 		}

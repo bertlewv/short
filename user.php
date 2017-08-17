@@ -19,7 +19,7 @@ if ($_SESSION['auth'] != 1) {
 	require('login.php');
 }else{
 	include 'config.php';
-	if ($_COOKIE['username'] !== $admin) {
+	if ($user !== $admin) {
 		header('Location: view.php');
 	}
 	if (empty($_POST['newpass'])) {
