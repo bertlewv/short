@@ -9,6 +9,8 @@ $password = "";
 $dbname = "";
 //Script Path
 $path = "http://google.com/";
+//Admin user
+$admin = "user";
 date_default_timezone_set('America/New_York');
 $date = date('Y-m-d H:i:s');
 $user = $_cookie['username'];

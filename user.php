@@ -17,7 +17,7 @@ function html() {
 if ($_SESSION['auth'] != 1) {
 	require('login.php');
 }else{
-	if ($_COOKIE['username'] !== "mike") {
+	if ($_COOKIE['username'] !== $admin) {
 		header('Location: view.php');
 	}
 	include 'config.php';
