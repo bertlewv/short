@@ -20,7 +20,7 @@ if ($_SESSION['auth'] != 1) {
 	$stmt = $conn->prepare("INSERT INTO users (user,pass) VALUES (?,?)");
 	$stmt->bind_param("ss", $newuser, $newpass);
 		if($stmt->execute()) {
-			echo "User added successfully.";
+			echo "User <font color=#09e853><b>".$newuser."</b></font> added successfully.";
 		}else{
 			echo "Adding user failed.";
 		}
