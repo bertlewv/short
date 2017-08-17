@@ -2,23 +2,23 @@
 <html>
 <body>
 <?php
-include 'config.php';
-if (!$user) {
-	echo "You need to <a href=$url>log in</a>";
-	die();
-}
-?>
-<a href=new.php>Add URL</a>
-<?php
-echo "<br>Hello ".$user."!<br>";
+session_start();
+if ($_SESSION['auth'] != 1) {
+	require('login.php');
+}else{
+	include 'config.php';
+	?>
+	<a href=new.php>Add URL</a>
+	<?php
+	echo "<br>Hello ".$user."!<br>";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-$stmt = $conn->prepare("SELECT * FROM links where user = ?");
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+	    die("Connection failed: " . $conn->connect_error);
+	}
+	$stmt = $conn->prepare("SELECT * FROM links where user = ?");
 	$stmt->bind_param("s", $user);
 	$stmt->execute();
 	$stmt->bind_result($short, $url, $view, $user, $date);
@@ -30,13 +30,13 @@ $stmt = $conn->prepare("SELECT * FROM links where user = ?");
 		print '<td>'.$url.'</td>';
 		print '<td>'.$user.'</td>';
 		print '<td>'.$date.'</td>';
-		print '<td align="center"><a href="delete.php?id='.$short.'"><img src="delete-icon.png"></a>';
+		print '<td align="center"><a href="delete.php?id='.$short.'">DELETE</a>';
 		print '</tr>';
 	}
 	print '</table>';
 	$stmt->close();
 	$conn->close();
-
+}
 ?>
 
 

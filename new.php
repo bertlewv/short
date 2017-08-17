@@ -2,11 +2,11 @@
 <html>
 <body>
 <?php
-include 'config.php';
-if (!$user) {
-	echo "You need to <a href=$path>log in</a>";
-	die();
-}
+session_start();
+if ($_SESSION['auth'] != 1) {
+	require('login.php');
+}else {
+	include 'config.php';
 ?>
 
 <form action="insert.php" method="POST">
@@ -19,3 +19,6 @@ URL to Shorten: <input type="text" name="url"><br>
 
 </body>
 </html>
+<?php
+}
+?>

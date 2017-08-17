@@ -42,11 +42,10 @@ Password: <input type="password" name="pass">
 <?php
 		}else {
 			//if ($name == "mike" && $pass == "mike" ) {
-			//Yay your auth worked
 			session_start();
 			$_SESSION['auth'] = 1;
 			setcookie("username", $_POST['name'], time()+(84600*30));
-			header('Location: test.php');
+			header('Location: view.php');
 			exit;
 		}
 	}
