@@ -10,7 +10,7 @@ function boop() {
 	<center>
 	You need to login.
 	<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-	Username: <input type="text" name="name" value="<?php echo $_COOKIE['username']; ?>">
+	Username: <input type="text" name="name" value="<?=$name?>">
 	<p>
 	Password: <input type="password" name="pass">
 	<p>
