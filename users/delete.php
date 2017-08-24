@@ -13,6 +13,9 @@ if ($_SESSION['auth'] != 1) {
 		echo "You need to <a href=$path>log in</a>";
 		die();
 	}
+	if ($user != $admin) {
+                die("You are not an admin");
+        }
 	$id = $_GET['id'];
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);

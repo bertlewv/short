@@ -15,9 +15,10 @@ if ($_SESSION['auth'] != 1) {
 	require('../login.php');
 }else{
 	include '../config.php';
-	if ($user == $admin) {
-		echo "<button type=button onclick=window.location.href='add.php'>Add USER</button>";
+	if ($user != $admin) {
+		die("You are not an admin");
 	}
+	echo "<button type=button onclick=window.location.href='add.php'>Add USER</button>";
 	echo "<button type=button onclick=window.location.href='../logout.php'>LOGOUT</button>";
 	echo "<br>Hello ".$user."!<br>";
 
