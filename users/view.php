@@ -18,6 +18,7 @@ if ($_SESSION['auth'] != 1) {
 	if ($user != $admin) {
 		die("You are not an admin");
 	}
+	echo "<h2>USER MANAGEMENT</h2>";
 	echo "<button onclick=window.location.href='add.php'>Add USER</button> ";
 	echo "<button onclick=window.location.href='../view.php'>View URLs</button> ";
 	echo "<button onclick=window.location.href='../logout.php'>LOGOUT</button> ";
