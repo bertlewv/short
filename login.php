@@ -39,6 +39,10 @@ if (isset($name) && isset($pass)) {
 			$_SESSION['user'] = $name;
 			header('Location: view.php');
 		} else {
+			// Optional logging to file.
+			$handle = fopen('failedlogin.txt', 'a');
+			$data = $_SERVER['REMOTE_ADDR'] . " failed to login as " . $name . "\n";
+			fwrite($handle, $data);
 			echo "Invalid login information";
 			boop();
 		}
