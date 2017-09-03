@@ -5,6 +5,8 @@ function html() {
 	<html>
 	<head></head>
 	<body>
+	<p>You can add a user by filling out the form below.<br>
+	Username will be stored in plain text while the password is stored using bcrypt.</p>
 	<form action="" method="POST">
 	Username: <input type="text" name="newuser"><br>
 	Password: <input type="password" name="newpass"><br>
@@ -32,6 +34,9 @@ if ($_SESSION['auth'] != 1) {
 	$newpass = $_POST['newpass'];
 	$hashpass = password_hash($newpass, PASSWORD_BCRYPT, $options);
 	}
+	if(!$newuser && !$newpass) {
+		html();
+	} else {
 	$conn = new mysqli($servername, $username, $password, $dbname);
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_erro);
@@ -47,6 +52,7 @@ if ($_SESSION['auth'] != 1) {
 		}
 	$stmt->close();
 	$conn->close();
+	}
 }
 
 
