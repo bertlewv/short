@@ -1,7 +1,7 @@
 <?php
 include 'config.php';
 $name = $_POST['name'];
-$pass = sha1($_POST['pass']);
+$pass = $_POST['pass'];
 function boop() {
 	?>
 	<html>
@@ -21,28 +21,38 @@ function boop() {
 	</html>
 	<?php
 }
+
 if (isset($name) && isset($pass)) {
 	$conn = new mysqli($servername, $username, $password, $dbname);
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	}
-	$stmt = $conn->prepare("SELECT user FROM users WHERE user = ? and PASS = ?");
-	$stmt->bind_param("ss", $name, $pass);
+	$stmt = $conn->prepare("SELECT * FROM users WHERE user = ?");
+	$stmt->bind_param("s", $name);
 	if($stmt->execute()) {
-		$stmt->bind_result($rawr);
+		$stmt->bind_result($rawr,$dbpass);
 		$stmt->store_result();
 		$stmt->fetch();
-		if ($stmt->num_rows < 1) {
-			/*Denied */
-			echo "<center>Valid authentication credentials not provided</center>";
-			boop();
-		}else {
+		if (password_verify($pass, $dbpass)) {
 			session_start();
-			$_SESSION['auth'] = 1;
+			$_SESSION['auth'] =  1;
 			$_SESSION['user'] = $name;
 			header('Location: view.php');
-			exit;
+		} else {
+			echo "Invalid login information";
+			boop();
 		}
+		//if ($stmt->num_rows < 1) {
+		//	/*Denied */
+		//	echo "<center>Valid authentication credentials not provided</center>";
+		//	boop();
+		//}else {
+		//	session_start();
+		//	$_SESSION['auth'] = 1;
+		//	$_SESSION['user'] = $name;
+		//	header('Location: view.php');
+		//	exit;
+		//}
 	}
 }else {
 	boop();
