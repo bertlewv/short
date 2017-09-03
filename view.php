@@ -15,12 +15,12 @@ if ($_SESSION['auth'] != 1) {
 	require('login.php');
 }else{
 	include 'config.php';
+	echo "<h4>Hello " .$user."! Here are your submitted links. </h4>";
 	echo "<button type=button onclick=window.location.href='new.php'>Add URL</button> ";
 	if ($user == $admin) {
 		echo "<button type=button onclick=window.location.href='./users'>Manage Users</button> ";
 	}
-	echo "<button type=button onclick=window.location.href='logout.php'>LOGOUT</button> ";
-	echo "<br>Hello ".$user."!<br>";
+	echo "<button type=button onclick=window.location.href='logout.php'>LOGOUT</button><br><br> ";
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
