@@ -7,7 +7,8 @@ include 'config.php';
 $id = $_GET['id'];
 
 if (!$id) {
-        header("Location: view.php");
+	require_once("view.php");
+        //header("Location: view.php");
         die();
 } else {
         // Create connection
