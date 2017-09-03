@@ -20,6 +20,7 @@ if ($_SESSION['auth'] != 1) {
 	}
 	echo "<button type=button onclick=window.location.href='add.php'>Add USER</button>";
 	echo "<button type=button onclick=window.location.href='../logout.php'>LOGOUT</button>";
+	echo "<button type=button onclick=window.location.href='../view.php'>View URLs</button>";
 	echo "<br>Hello ".$user."!<br>";
 
 	// Create connection
