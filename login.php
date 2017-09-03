@@ -44,6 +44,7 @@ if (isset($name) && isset($pass)) {
 			$data = $_SERVER['REMOTE_ADDR'] . " failed to login as " . $name . "\n";
 			fwrite($handle, $data);
 			echo "Invalid login information";
+			fclose($handle);
 			boop();
 		}
 		//if ($stmt->num_rows < 1) {
