@@ -18,7 +18,7 @@ function html() {
 	<?php
 }
 $options = [
-        'cost' => 11,
+        'cost' => 13,
 ];
 if ($_SESSION['auth'] != 1) {
 	require('../login.php');
