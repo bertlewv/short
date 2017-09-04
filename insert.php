@@ -35,7 +35,7 @@ if ($_SESSION['auth'] != 1) {
 <button onclick="goBack()">Go Back</button>
 <script>
 function goBack() {
-        window.history.back();
+  window.history.back();
 }
 </script>
 <?php

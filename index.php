@@ -8,15 +8,14 @@ $id = $_GET['id'];
 
 if (!$id) {
 	require_once("view.php");
-        //header("Location: view.php");
-        die();
+  die();
 } else {
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-        // Check connection
-        if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-        }
+  // Create connection
+  $conn = new mysqli($servername, $username, $password, $dbname);
+  // Check connection
+  if ($conn->connect_error) {
+  	die("Connection failed: " . $conn->connect_error);
+  }
 	if ($stmt = $conn->prepare("SELECT url FROM links WHERE short = ? LIMIT 1;")) {
 		$stmt->bind_param("s",$id);
 		if($stmt->execute()) {
@@ -38,4 +37,3 @@ if (!$id) {
 
 </body>
 </html>
-
